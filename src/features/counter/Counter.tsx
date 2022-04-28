@@ -10,7 +10,19 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import styled, {DefaultTheme, StyledComponent} from 'styled-components'
+/**
+ * Style-Components type 정리 필요
+ */
+const RowComponets:StyledComponent<'div', DefaultTheme> = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
+/**
+ * @returns <Component></Component>
+ */
 export function Counter() {
   const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
@@ -20,7 +32,7 @@ export function Counter() {
 
   return (
     <div>
-      <div className={styles.row}>
+      <RowComponets>
         <button
           className={styles.button}
           aria-label="Decrement value"
@@ -36,7 +48,7 @@ export function Counter() {
         >
           +
         </button>
-      </div>
+      </RowComponets>
       <div className={styles.row}>
         <input
           className={styles.textbox}
